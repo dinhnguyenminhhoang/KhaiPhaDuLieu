@@ -1,0 +1,32 @@
+{
+  "features": [
+    "word_length",
+    "num_vowels",
+    "num_consonants",
+    "vowel_ratio",
+    "consonant_ratio",
+    "first_char_encoded",
+    "last_char_encoded",
+    "first_bigram_encoded",
+    "last_bigram_encoded",
+    "first_trigram_encoded",
+    "last_trigram_encoded",
+    "first_bigram_common",
+    "last_bigram_common",
+    "has_double_letters",
+    "num_double_letters",
+    "has_repeated_vowels",
+    "is_alternating",
+    "syllable_count",
+    "syllable_ratio",
+    "max_consonant_cluster",
+    "max_vowel_cluster",
+    "char_diversity",
+    "unique_vowels",
+    "unique_consonants",
+    "starts_with_vowel",
+    "ends_with_vowel",
+    "middle_char_encoded",
+    "middle_is_vowel"
+  ]
+}

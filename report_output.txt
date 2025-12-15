@@ -1,0 +1,64 @@
+✓ Config loaded - LARGE DATASET MODE
+  - Device: cuda
+  - GPU: NVIDIA GeForce RTX 3050 Laptop GPU
+  - GPU Memory: 3.95 GB
+  - Target samples: 100,000
+Loading data and model...
+
+================================================================================
+BÁO CÁO CHI TIẾT: MODEL 4 - ENSEMBLE (WEIGHTED VOTING)
+================================================================================
+
+1. CHIẾN LƯỢC & CẤU TRÚC (STRATEGY & ARCHITECTURE)
+--------------------------------------------------
+Loại Ensemble: Soft Voting Classifier
+Mô tả: Kết hợp dự đoán xác suất từ 3 model thành phần (Random Forest, XGBoost, LightGBM).
+Cơ chế Voting: Soft Voting (Trung bình có trọng số các xác suất dự đoán)
+
+Trọng số (Weights) được gán cho từng model (dựa trên F1-score validation):
+  - Random Forest: 0.3162
+  - XGBoost: 0.3421
+  - LightGBM: 0.3417
+
+Số lượng features đầu vào: 28
+
+2. KẾT QUẢ ĐÁNH GIÁ TRÊN TẬP VALIDATION
+--------------------------------------------------
+Số lượng mẫu validation: 10,043
+
+Độ chính xác tổng thể (Accuracy): 0.8467 (84.67%)
+F1-Score (Weighted):            0.8465
+
+Báo cáo chi tiết theo từng lớp (Classification Report):
+              precision    recall  f1-score   support
+
+     correct       0.61      0.60      0.61      1982
+    deletion       1.00      1.00      1.00      2266
+   insertion       1.00      1.00      1.00      2949
+substitution       0.73      0.74      0.73      2846
+
+    accuracy                           0.85     10043
+   macro avg       0.84      0.83      0.83     10043
+weighted avg       0.85      0.85      0.85     10043
+
+
+3. MA TRẬN NHẦM LẪN (CONFUSION MATRIX)
+--------------------------------------------------
+                |      correct |     deletion |    insertion | substitution |
+---------------------------------------------------------------------------
+        correct |         1196 |            0 |            0 |          786 |
+       deletion |            0 |         2265 |            0 |            1 |
+      insertion |            0 |            0 |         2948 |            1 |
+   substitution |          751 |            0 |            1 |         2094 |
+
+4. SO SÁNH VỚI CÁC MODEL KHÁC
+--------------------------------------------------
+        Model  Val Accuracy  Val F1-Score  Overfitting Gap  Training Time (min)    score
+     Ensemble      0.846659      0.846460         0.034988             0.290856 0.828965
+      XGBoost      0.845962      0.844887         0.047726             2.871709 0.821024
+     LightGBM      0.845265      0.843970         0.033579             0.140587 0.827180
+Random Forest      0.784427      0.781132         0.006101             1.278349 0.778082
+
+Cải thiện so với model đơn lẻ tốt nhất: +0.0016
+
+================================================================================
